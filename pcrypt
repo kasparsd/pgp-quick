@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+# Look for the recipient in our key ring
+# or search for the user if not found
+if ! gpg2 -k | grep -q "$1"; then
+    gpg2 --keyserver hkps://pgp.mit.edu --search-keys "$1"
+fi
+
+# Encrypt the clipboard
+message=$(pbpaste | gpg2 -e -a -r "$1")
+
+# Store the encrypted message in clipboard
+echo "$message" | pbcopy
+
+echo "Copied to Clipboard!"
