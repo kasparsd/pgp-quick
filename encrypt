@@ -1,16 +1,26 @@
 #!/bin/bash
 set -e
 
+if [ "$#" == "0" ]; then
+	echo "Usage: encrypt name@example.com [-s]"
+	exit 1
+fi
+
+recipient="$1"
+
+# Remove recipient from the list of args
+shift
+
 # Look for the recipient in our key ring
 # or search for the user if not found
-if ! gpg2 -k | grep -q "$1"; then
-    gpg2 --keyserver hkps://pgp.mit.edu --search-keys "$1"
+if ! gpg -k | grep -q "$recipient"; then
+    gpg --keyserver hkps://pgp.mit.edu --search-keys "$recipient"
 fi
 
 # Encrypt the clipboard
-message=$(pbpaste | gpg2 -e -a -r "$1")
+message=$(pbpaste | gpg -e -a -r "$recipient" "$*")
 
 # Store the encrypted message in clipboard
 echo "$message" | pbcopy
 
-echo "Encrypted to Clipboard!"
+echo "Encrypted to clipboard!"
