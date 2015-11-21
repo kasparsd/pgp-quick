@@ -1,6 +1,6 @@
-# PGP Encrypt/Decrypt Clipboard
+# PGP Encrypt, Decrypt, Sign and Verify Clipboard
 
-A set of bash scripts to simplify the encryption and decryption of any content you have copied to the clipboard. Automatically searches the [pgp.mit.edu keyserver](https://pgp.mit.edu/) for unknown recipients.
+A set of bash scripts to simplify the encryption, decryption, signing and verification of any content you have copied to the clipboard. Automatically searches the [pgp.mit.edu keyserver](https://pgp.mit.edu/) for unknown recipients during encryption.
 
 ![Screenshot of the terminal output](screenshot.png)
 
@@ -16,7 +16,7 @@ Download and install [GnuPG for OS X](http://sourceforge.net/p/gpgosx/docu/Downl
 
 ## Usage
 
-### Encrypt Text
+### Encryption
 
 Simply copy the text you want to encrypt and double click the `encrypt-clipboard` file or run it from the terminal:
 
@@ -43,4 +43,3 @@ In case the public key of the recipient is not found in your local keyring, it w
 	Use this key anyway? (y/N)
 
 Please take extra care when selecting the key by ensuring the [correct fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint). For example, the [about page on kaspars.net](http://kaspars.net/about) lists `DE94 A9B4 8BE3 6B82 F438  EE72 3352 BC04 645D 5E28` as the fingerprint of my public key which indeed matches the one found by the script above.
-
