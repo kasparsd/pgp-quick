@@ -13,8 +13,8 @@ shift
 
 # Look for the recipient in our key ring
 # or search for the user if not found
-if ! gpg -k | grep -q "$recipient"; then
-    gpg --keyserver hkps://pgp.mit.edu --search-keys "$recipient"
+if ! gpg --list-keys | grep --quiet "$recipient"; then
+	gpg --keyserver hkps://pgp.mit.edu --search-keys "$recipient"
 fi
 
 # Encrypt the clipboard
