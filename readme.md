@@ -1,6 +1,6 @@
 # PGP Encrypt/Decrypt Clipboard
 
-A set of bash scripts to simplify the encryption and decryption of any content you have copied to the clipboard (Cmd+C). Automatically searches the [pgp.mit.edu keyserver](https://pgp.mit.edu/) for unknown recipients.
+A set of bash scripts to simplify the encryption and decryption of any content you have copied to the clipboard. Automatically searches the [pgp.mit.edu keyserver](https://pgp.mit.edu/) for unknown recipients.
 
 ![Screenshot of the terminal output](screenshot.png)
 
