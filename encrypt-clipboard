@@ -1,15 +1,14 @@
 #!/bin/bash
 set -e
 
-if [ "$#" == "0" ]; then
-	echo "Usage: encrypt-clipboard name@example.com [-sign]"
-	exit 1
+if [ -z "$*" ]; then
+	echo "Enter recipient email address:"
+	read recipient
+else
+	recipient="$1"
+	# Remove recipient from the list of args
+	shift
 fi
-
-recipient="$1"
-
-# Remove recipient from the list of args
-shift
 
 # Look for the recipient in our key ring
 # or search for the user if not found
@@ -18,7 +17,7 @@ if ! gpg --list-keys | grep --quiet "$recipient"; then
 fi
 
 # Encrypt the clipboard
-message=$(pbpaste | gpg --encrypt --armor --recipient "$recipient" "$*")
+message=$(pbpaste | gpg --encrypt --armor --recipient "$recipient" $*)
 
 # Store the encrypted message in clipboard
 echo "$message" | pbcopy
