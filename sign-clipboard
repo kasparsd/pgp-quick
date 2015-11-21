@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+# Encrypt the clipboard
+message=$(pbpaste | gpg --sign --clearsign $*)
+
+# Store the signed message in clipboard
+echo "$message" | pbcopy
+
+echo "Signed to clipboard!"
