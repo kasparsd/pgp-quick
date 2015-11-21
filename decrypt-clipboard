@@ -2,7 +2,7 @@
 set -e
 
 # Encrypt the clipboard
-message=$(pbpaste | gpg -d)
+message=$(pbpaste | gpg --decrypt)
 
 # Store the encrypted message in clipboard
 echo "$message" | pbcopy

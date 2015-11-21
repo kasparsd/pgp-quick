@@ -2,7 +2,7 @@
 set -e
 
 if [ "$#" == "0" ]; then
-	echo "Usage: encrypt name@example.com [-s]"
+	echo "Usage: encrypt-clipboard name@example.com [-sign]"
 	exit 1
 fi
 
@@ -18,7 +18,7 @@ if ! gpg -k | grep -q "$recipient"; then
 fi
 
 # Encrypt the clipboard
-message=$(pbpaste | gpg -e -a -r "$recipient" "$*")
+message=$(pbpaste | gpg --encrypt --armor --recipient "$recipient" "$*")
 
 # Store the encrypted message in clipboard
 echo "$message" | pbcopy
