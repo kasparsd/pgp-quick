@@ -1,5 +1,7 @@
 # PGP Encrypt/Decrypt Clipboard
 
+![Screenshot of the terminal output](screenshot.png)
+
 ## Requirements
 
 Download and install [GnuPG for OS X](http://sourceforge.net/p/gpgosx/docu/Download/) or using [Homebrew](http://brew.sh/): 
