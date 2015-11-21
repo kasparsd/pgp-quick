@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+# Decrypt the file to stdout by default
+gpg --decrypt "$*"

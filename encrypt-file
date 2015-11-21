@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+if [ "$#" == "0" ]; then
+	echo "Usage: encrypt-file name@example.com [-s]"
+	exit 1
+fi
+
+recipient="$1"
+
+# Remove recipient from the list of args
+shift
+
+# Look for the recipient in our key ring
+# or search for the user if not found
+if ! gpg --list-keys | grep --quiet "$recipient"; then
+	gpg --keyserver hkps://pgp.mit.edu --search-keys "$recipient"
+fi
+
+# Encrypt the file to clipboard
+gpg --encrypt --recipient "$recipient" "$*"
