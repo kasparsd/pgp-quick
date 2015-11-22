@@ -78,7 +78,7 @@ Now everyone can verify that it was written by me:
 	gpg: Signature made Sun Nov 22 01:52:44 2015 EET using RSA key ID 645D5E28
 	gpg: Good signature from "Kaspars Dambis <kaspars@damb.is>"
 
-For example, https://keybase.io/verify confirms that it was signed by me:
+Also https://keybase.io/verify confirms that it was signed by me:
 
 ![Verified as signed by Kaspars](http://kaspars.net/wp-content/uploads/2015/11/signed-by-kaspars.png)
 
