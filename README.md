@@ -81,3 +81,9 @@ Now everyone can verify that it was written by me:
 For example, https://keybase.io/verify confirms that it was signed by me:
 
 ![Verified as signed by Kaspars](http://kaspars.net/wp-content/uploads/2015/11/signed-by-kaspars.png)
+
+## Author
+
+Created by [Kaspars Dambis](http://kaspars.net).
+
+I use these scripts with [Yubikey NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
