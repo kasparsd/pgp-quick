@@ -2,7 +2,7 @@
 set -e
 
 # Encrypt the clipboard
-message=$(pbpaste | gpg --sign --clearsign $*)
+message=$(pbpaste | gpg --clearsign $*)
 
 # Store the signed message in clipboard
 echo "$message" | pbcopy
