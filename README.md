@@ -52,7 +52,7 @@ For example, here is a message that I would like to sign:
 
 so I select and copy that string and run (or click)
 
-	$ ./sign-clipboard
+	$ ./clearsign-clipboard
 
 which signs the message and stores it into clipboard:
 
