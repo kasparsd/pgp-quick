@@ -10,7 +10,7 @@ Download and install [GnuPG _modern_ for OS X](http://sourceforge.net/p/gpgosx/d
 
 	$ brew install gnupg21
 
-And symlink the `gpg` binary to `gpg2`:
+And ensure we have `gpg` symlinked to `gpg2`:
 
 	$ ln -s /usr/local/bin/gpg2 /usr/local/bin/gpg
 
