@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
 
+# Required for the pinentry
+export GPG_TTY=$(tty)
+
 # Decrypt the file to stdout by default
-gpg --pinentry-mode loopback --decrypt "$*"
+gpg --decrypt "$*"

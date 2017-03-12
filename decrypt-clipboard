@@ -1,8 +1,11 @@
 #!/bin/bash
 set -e
 
+# Required for the pinentry
+export GPG_TTY=$(tty)
+
 # Encrypt the clipboard
-message=$(pbpaste | gpg --pinentry-mode loopback --decrypt)
+message=$(pbpaste | gpg --decrypt)
 
 # Store the encrypted message in clipboard
 echo "$message" | pbcopy

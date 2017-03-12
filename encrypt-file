@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Required for the pinentry
+export GPG_TTY=$(tty)
+
 if [ -z "$*" ]; then
 	echo "Enter recipient email address:"
 	read recipient
@@ -17,4 +20,4 @@ if ! gpg --list-keys | grep --quiet "$recipient"; then
 fi
 
 # Encrypt the file to clipboard
-gpg --pinentry-mode loopback --sign --encrypt --recipient "$recipient" "$*"
+gpg --sign --encrypt --recipient "$recipient" "$*"
