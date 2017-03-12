@@ -8,7 +8,7 @@ A set of bash scripts to simplify the encryption, decryption, signing and verifi
 
 Download and install [GnuPG _modern_ for OS X](http://sourceforge.net/p/gpgosx/docu/Download/) or using [Homebrew](http://brew.sh/):
 
-	$ brew install gnupg21
+	$ brew install homebrew/versions/gnupg21
 
 And ensure we have `gpg` symlinked to `gpg2`:
 
