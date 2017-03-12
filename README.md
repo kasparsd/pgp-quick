@@ -42,7 +42,7 @@ In case the public key of the recipient is not found in your local keyring, it w
 
 	Use this key anyway? (y/N)
 
-Please take extra care when selecting the key by ensuring the [correct fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint). For example, the [about page on kaspars.net](http://kaspars.net/about) lists `DE94 A9B4 8BE3 6B82 F438  EE72 3352 BC04 645D 5E28` as the fingerprint of my public key which indeed matches the one found by the script above.
+Please take extra care when selecting the key by ensuring the [correct fingerprint](https://en.wikipedia.org/wiki/Public_key_fingerprint). For example, the [about page on kaspars.net](http://kaspars.net/about) lists `A134 BA02 60D4 3F8E ACC8  89D9 94F1 3532 A319 EA5D` as the fingerprint of my public key which indeed matches the one found by the script above.
 
 ### Signing and Verification
 
@@ -57,19 +57,19 @@ so I select and copy that string and run (or click)
 which signs the message and stores it into clipboard:
 
 	-----BEGIN PGP SIGNED MESSAGE-----
-	Hash: SHA1
+	Hash: SHA256
 
 	PGP Quick can be found at https://github.com/kasparsd/pgp-quick
 	-----BEGIN PGP SIGNATURE-----
-	Version: GnuPG v1
 
-	iQEcBAEBAgAGBQJWUQPMAAoJEDNSvARkXV4o0dwH/3DTfgoO6UuDrhkRSGoyNdI6
-	c38psk+9397vZBptsnBta0O/FBhunLReIVQI1Ab3pOkiHir7Qj8ktX1s70Ftcv9x
-	7lZwtb+ECLmwhS1FUvNAh482vGyN/VuBnJlGVAbEUW+PQ/AifxLsFHjpw7duhxnu
-	3SYyb7ZnR6n3vcNuWFVBqnW/C7zofg06Q5GHARmnEBELdEggSUB6sByYF70c0rDI
-	ChCsxRgjY9JbS4nzM7orUY1NoGIIfGqtMDwsxh01S3GQyRvG5FcxuoAZ1zGx6TEV
-	o1KVNbSD2gAJtD4V5bpZBTghF8/bSopssUAgMjhXF+J6h6040mIcw/8M6N8+q+0=
-	=zeBM
+	iQEzBAEBCAAdFiEEoTS6AmDUP46syInZlPE1MqMZ6l0FAljFKJQACgkQlPE1MqMZ
+	6l0TBAf/SOCCcCzJe1py3oQBErNkdZ+4RaHcsKibIhSlyC0+wSzNCoYA6TPhlqDw
+	+ggiYX8zdN0JbLDmKa31HlWB0BPWkzmLfKnXuT+xvfkOTMbdqhM76jsmkgNQ8icG
+	/inhMd8BZFaqLqD9aCuJPhxko2ZUMXuyQbSZrBRyT2n+g4iz+Fj+6TrUpjQy+8XA
+	ah3z4EXmR1VrQSUf77m85ctZI0rlQMCYo/ci+xqaDQ/tSehAfamJnLoHn9JwzVse
+	GUOKFwAZBVCpeIPzqFyJLYJ6ak042PZWF21Q8wGhVWY+AOdJht3bVR15uD2xMcQk
+	95WgMzwHfWezpeuHwGxFbXKk11uidw==
+	=Xl/W
 	-----END PGP SIGNATURE-----
 
 Now everyone can verify that it was written by me:
