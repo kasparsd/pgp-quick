@@ -6,13 +6,21 @@ A set of bash scripts to simplify the encryption, decryption, signing and verifi
 
 ## Requirements
 
-Download and install [GnuPG for OS X](http://sourceforge.net/p/gpgosx/docu/Download/) or using [Homebrew](http://brew.sh/): 
+Download and install [GnuPG _modern_ for OS X](http://sourceforge.net/p/gpgosx/docu/Download/) or using [Homebrew](http://brew.sh/):
 
-	$ brew install gpg
+	$ brew install gnupg21
+
+Note that GnuPG _stable_ doesn't work with the latest version of MacOS -- it returns the following error:
+
+	$ gpg --card-status
+	scdaemon[48405]: pcsc_control failed: invalid parameter (0x80100004)
+	scdaemon[48405]: pcsc_vendor_specific_init: GET_FEATURE_REQUEST failed: 65538
+
 
 ## Install
 
 	$ git clone https://github.com/kasparsd/pgp-quick.git
+
 
 ## Usage
 
