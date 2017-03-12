@@ -17,7 +17,7 @@ if ! gpg --list-keys | grep --quiet "$recipient"; then
 fi
 
 # Encrypt the clipboard
-message=$(pbpaste | gpg --sign --encrypt --armor --recipient "$recipient" $*)
+message=$(pbpaste | gpg --pinentry-mode loopback --sign --encrypt --armor --recipient "$recipient" $*)
 
 # Store the encrypted message in clipboard
 echo "$message" | pbcopy

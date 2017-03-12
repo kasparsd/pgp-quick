@@ -17,4 +17,4 @@ if ! gpg --list-keys | grep --quiet "$recipient"; then
 fi
 
 # Encrypt the file to clipboard
-gpg --sign --encrypt --recipient "$recipient" $*
+gpg --pinentry-mode loopback --sign --encrypt --recipient "$recipient" $*
