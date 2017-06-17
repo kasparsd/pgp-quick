@@ -4,23 +4,46 @@ set -e
 # Required for the pinentry
 export GPG_TTY=$(tty)
 
-if [ -z "$*" ]; then
-	echo "Enter recipient email address:"
-	read recipient
-else
-	recipient="$1"
-	# Remove recipient from the list of args
-	shift
-fi
+getKey()
+{
+    if ! gpg --list-keys | grep --quiet "$1"; then              # Look for the recipient in our key ring
+        gpg --keyserver hkps://pgp.mit.edu --search-keys "$1"   # or search for the user if not found
+    fi
+}
 
-# Look for the recipient in our key ring
-# or search for the user if not found
-if ! gpg --list-keys | grep --quiet "$recipient"; then
-	gpg --keyserver hkps://pgp.mit.edu --search-keys "$recipient"
+if [ -z "$*" ]; then
+    echo -n "Enter recipient's email address: "
+    read -r recipient
+    getKey "$recipient"
+    args=(--recipient "$recipient")
+    while true; do
+        echo -n "Enter next recipient's email address (press ENTER if none): "
+        read -r recipient
+        if [ -z "$recipient" ]; then
+            break
+        else
+            getKey "$recipient"
+            args+=(--recipient "$recipient")
+        fi
+    done
+else
+    recipient="$1"
+    getKey "$recipient"
+    args=(--recipient "$recipient")
+    while true; do
+        shift   # Remove recipient from the list of args
+        recipient="$1"
+        if [ -z "$recipient" ]; then
+            break
+        else
+            getKey "$recipient"
+            args+=(--recipient "$recipient")
+        fi
+    done
 fi
 
 # Encrypt the clipboard
-message=$(pbpaste | gpg --sign --encrypt --armor --recipient "$recipient" $*)
+message=$(pbpaste | gpg --sign --encrypt --armor "${args[@]}")
 
 # Store the encrypted message in clipboard
 echo "$message" | pbcopy
